@@ -1,0 +1,111 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #a92222; /* Puedes reemplazar con imagen */
+}
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2em 1em 1em 1em;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo-img {
+  width: 200px;
+  max-width: 120%;
+  margin-bottom: 1em;
+}
+
+.nav-links {
+  background-color: rgba(224, 237, 237, 0);
+  display: flex;
+  gap: 1.5em;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1em;
+  border-radius: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  background-color: #11c8d900;
+  padding: 0.6em 1.2em;
+  border: 1px solid #0b0b0b; /* color borde estilo botón */
+  border-radius: 20px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  background-color: #60ce07;
+  color: rgb(12, 3, 3);
+  transform: scale(1.05);
+}
+
+.navbar nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+}
+
+
+
+.hero .overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 3em;
+  text-align: center;
+  padding: 0 1em;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 2em;
+  }
+}
+.nosotros {
+  min-height: 100vh;
+  background: url('img/fondonosotros.png') center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Alinea arriba */
+  padding-top: 120px; /* Espacio desde arriba */
+  padding-left: 400px;
+  padding-right: 400px;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 40px;
+  border-radius: 10px;
+  max-width: 900px;
+  width: 100%;
+  color: white;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.descripcion {
+  margin-top: 20px;
+  text-align: justify;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}

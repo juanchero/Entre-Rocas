@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Entre Rocas Glamping</title>
+  <link rel="stylesheet" href="style-main.css" />
+  <style>
+    body {
+      background-color: aquamarine;
+    }
+
+    .gallery {
+      padding: 40px;
+      text-align: center;
+      background-color: white;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 200px; /* Altura fija para todas las imágenes */
+      object-fit: cover; /* Recorta la imagen para que no se deforme */
+      cursor: pointer;
+      transition: transform 0.2s;
+      display: block;
+    }
+
+    .gallery-item img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Modal estilos */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 99;
+      padding-top: 60px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.9);
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 700px;
+      border-radius: 10px;
+    }
+
+    .close {
+      position: absolute;
+      top: 30px;
+      right: 45px;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    @media screen and (max-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <img src="img/Captura_de_pantalla_2025-05-28_104655-removebg-preview.png" alt="Logo Entre Rocas" class="logo-img" />
+    <nav class="nav-links">
+    <a href="Nosotros.html">Inicio</a>
+    <a href="Menu.html">Menú</a>
+    <a href="Galeria.html">Galería</a>
+     <a href="Nosotros.html">Nosotros</a>
+    <a href="Contactanos.html">Contáctanos</a>
+    </nav>
+  </header>
+
+  <!-- Galería -->
+  <section class="gallery">
+    <h2>Menú</h2>
+    <div class="gallery-grid" id="galleryGrid">
+      <!-- Las imágenes se cargarán aquí con JS -->
+    </div>
+  </section>
+
+  <!-- Modal para ampliar imagen -->
+  <div id="imgModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImg" />
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const galleryContainer = document.getElementById("galleryGrid");
+      for (let i = 1; i <= 8; i++) {
+        const div = document.createElement("div");
+        div.className = "gallery-item";
+        div.innerHTML = `
+          <img src="img/galeria/img${i}.jpg" alt="Imagen ${i}" onclick="openModal(this)" />
+        `;
+        galleryContainer.appendChild(div);
+      }
+    });
+
+    function openModal(img) {
+      const modal = document.getElementById("imgModal");
+      const modalImg = document.getElementById("modalImg");
+      modal.style.display = "block";
+      modalImg.src = img.src;
+      modalImg.alt = img.alt;
+    }
+
+    function closeModal() {
+      const modal = document.getElementById("imgModal");
+      modal.style.display = "none";
+    }
+  </script>
+</body>
+</html>
